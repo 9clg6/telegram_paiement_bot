@@ -1,0 +1,32 @@
+name: telegram_paiement_bot
+description: A sample command-line application.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+# Add regular dependencies here.
+dependencies:
+  televerse: ^2.2.0
+  dotenv: ^4.2.0
+  firedart: ^0.9.8
+  get_it: ^8.0.3
+  injectable: ^2.5.0
+  retrofit: ^4.0.1
+  dio: ^5.5.0
+  freezed: ^2.5.7
+  json_annotation: ^4.9.0
+  freezed_annotation: ^2.4.4
+  flutter_secure_storage: ^9.0.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+dev_dependencies:
+  analyzer: ^6.8.0
+  lints: ^4.0.0
+  test: ^1.24.0
+  retrofit_generator: ^8.1.2
+  build_runner: ^2.4.13
+  json_serializable: ^6.9.0
+  injectable_generator: ^2.1.6
