@@ -13,7 +13,7 @@ Future<void> main(List<String> arguments) async {
     print('🔐 Token chargé');
 
     injector.registerSingleton<AppConfig>(AppConfig.fromEnvironment());
-    configureDependencies();
+    await configureDependencies();
 
     await TelegramBot().start();
   } on Exception catch (e) {

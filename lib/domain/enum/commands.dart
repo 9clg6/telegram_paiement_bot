@@ -16,6 +16,13 @@ enum Commands {
     "🛒 Commander",
   ),
 
+  /// Select product command
+  ///
+  selectProduct(
+    "selectProduct",
+    "🛒 Sélectionner un produit",
+  ),
+
   /// Create wallet command
   ///
   createWallet(
@@ -28,6 +35,13 @@ enum Commands {
   selectCurrency(
     "selectCurrency",
     "🪙 Sélectionner ma cryptomonnaie",
+  ),
+
+  /// Pay command
+  /// 
+  pay(
+    "pay",
+    "💰 Payer",
   ),
 
   /// Select currency LTC command

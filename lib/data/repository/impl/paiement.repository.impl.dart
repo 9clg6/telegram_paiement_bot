@@ -3,6 +3,8 @@ import 'package:telegram_paiement_bot/data/model/remote/authentication_body.remo
 import 'package:telegram_paiement_bot/data/repository/paiement.repository.dart';
 import 'package:telegram_paiement_bot/domain/entity/authentication.entity.dart';
 import 'package:telegram_paiement_bot/domain/entity/minimum_amount.entity.dart';
+import 'package:telegram_paiement_bot/domain/entity/paiement.entity.dart';
+import 'package:telegram_paiement_bot/domain/entity/product.entity.dart';
 import 'package:telegram_paiement_bot/domain/enum/currency.dart';
 
 /// PaiementRepositoryImpl is an implementation of the PaiementRepository interface.
@@ -12,7 +14,7 @@ class PaiementRepositoryImpl implements PaiementRepository {
 
   /// Constructor of the PaiementRepositoryImpl class.
   /// @param paiementDatasource the paiement datasource
-  /// 
+  ///
   PaiementRepositoryImpl(this._paiementDatasource);
 
   /// Authenticate the user.
@@ -45,6 +47,25 @@ class PaiementRepositoryImpl implements PaiementRepository {
 
     return minimumAmountRemoteModel != null
         ? MinimumAmountEntity.fromRemoteModel(minimumAmountRemoteModel)
+        : null;
+  }
+
+  /// Create a paiement.
+  /// @param selectedCurrency the selected currency
+  /// @return the paiement
+  ///
+  @override
+  Future<PaiementEntity?> createPaiement(
+    Currency selectedCurrency,
+    Product product,
+  ) async {
+    final paiementRemoteModel = await _paiementDatasource.createPaiement(
+      selectedCurrency,
+      product,
+    );
+
+    return paiementRemoteModel != null
+        ? PaiementEntity.fromRemoteModel(paiementRemoteModel)
         : null;
   }
 }

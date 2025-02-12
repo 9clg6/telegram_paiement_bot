@@ -15,4 +15,4 @@ final injector = GetIt.instance;
   asExtension: true,
   ignoreUnregisteredTypes: [AppConfig]
 )
-void configureDependencies() => injector.init();
+Future<void> configureDependencies() async => await injector.init();

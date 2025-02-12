@@ -1,13 +1,17 @@
 import 'package:injectable/injectable.dart';
 import 'package:telegram_paiement_bot/data/data_source/local/authentication.local.data_source.dart';
 import 'package:telegram_paiement_bot/data/data_source/local/impl/authentication.local.data_source.impl.dart';
+import 'package:telegram_paiement_bot/data/data_source/local/impl/product.local.data_source.dart';
+import 'package:telegram_paiement_bot/data/data_source/local/product.local.data_source.dart';
 import 'package:telegram_paiement_bot/data/data_source/remote/impl/paiement.data_source.impl.dart';
 import 'package:telegram_paiement_bot/data/data_source/remote/paiement.data_source.dart';
 import 'package:telegram_paiement_bot/data/endpoint/paiement.endpoint.dart';
 import 'package:telegram_paiement_bot/data/repository/authentication.repository.dart';
 import 'package:telegram_paiement_bot/data/repository/impl/authentication.repository.impl.dart';
 import 'package:telegram_paiement_bot/data/repository/impl/paiement.repository.impl.dart';
+import 'package:telegram_paiement_bot/data/repository/impl/product.repository.impl.dart';
 import 'package:telegram_paiement_bot/data/repository/paiement.repository.dart';
+import 'package:telegram_paiement_bot/data/repository/product.repository.dart';
 import 'package:telegram_paiement_bot/data/storage/storage.service.impl.dart';
 import 'package:telegram_paiement_bot/foundation/interface/storage.interface.dart';
 import 'package:telegram_paiement_bot/foundation/io/client/dio_client.dart';
@@ -20,7 +24,8 @@ abstract class DataModule {
   ///
   @preResolve
   @singleton
-  Future<StorageInterface<String>> storageService() => StorageServiceImpl.inject();
+  Future<StorageInterface<String>> storageService() =>
+      StorageServiceImpl.inject();
 
   /// Allow to inject [PaiementEndpoint]
   ///
@@ -61,4 +66,16 @@ abstract class DataModule {
     AuthenticationLocalDataSource authenticationLocalDataSource,
   ) =>
       AuthenticationRepositoryImpl(authenticationLocalDataSource);
+
+  /// Allow to inject [ProductLocalDataSource]
+  @Injectable(as: ProductLocalDataSource)
+  ProductLocalDataSourceImpl productLocalDataSource() =>
+      ProductLocalDataSourceImpl();
+
+  /// Allow to inject [ProductRepository]
+  @Injectable(as: ProductRepository)
+  ProductRepositoryImpl productRepository(
+    ProductLocalDataSource productDataSource,
+  ) =>
+      ProductRepositoryImpl(productDataSource);
 }

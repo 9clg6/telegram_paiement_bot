@@ -4,6 +4,8 @@ import 'package:retrofit/retrofit.dart';
 import 'package:telegram_paiement_bot/data/model/remote/authentication.remote_model.dart';
 import 'package:telegram_paiement_bot/data/model/remote/authentication_body.remote.model.dart';
 import 'package:telegram_paiement_bot/data/model/remote/minimum_amount.remote_model.dart';
+import 'package:telegram_paiement_bot/data/model/remote/paiement.remote_model.dart';
+import 'package:telegram_paiement_bot/data/model/remote/paiement_body.remote_model.dart';
 import 'package:telegram_paiement_bot/foundation/io/client/dio_client.dart';
 
 part 'paiement.endpoint.g.dart';
@@ -41,4 +43,13 @@ abstract class PaiementEndpoint {
     @Path() String currencyTo, [
     @Path() bool isFeePaidByUser = true,
   ]);
+
+  /// Create a paiement.
+  /// @param createPaiementBody the create paiement body
+  /// @return the paiement remote model
+  /// 
+  @POST('/payment')
+  Future<PaiementRemoteModel?> createPaiement(
+    @Body() CreatePaiementBody createPaiementBody,
+  );
 }

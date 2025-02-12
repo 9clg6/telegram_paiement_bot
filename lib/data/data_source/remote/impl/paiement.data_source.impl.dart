@@ -3,6 +3,10 @@ import 'package:telegram_paiement_bot/data/endpoint/paiement.endpoint.dart';
 import 'package:telegram_paiement_bot/data/model/remote/authentication.remote_model.dart';
 import 'package:telegram_paiement_bot/data/model/remote/authentication_body.remote.model.dart';
 import 'package:telegram_paiement_bot/data/model/remote/minimum_amount.remote_model.dart';
+import 'package:telegram_paiement_bot/data/model/remote/paiement.remote_model.dart';
+import 'package:telegram_paiement_bot/data/model/remote/paiement_body.remote_model.dart';
+import 'package:telegram_paiement_bot/domain/entity/product.entity.dart';
+import 'package:telegram_paiement_bot/domain/enum/currency.dart';
 
 /// PaiementDataSourceImpl is an implementation of the PaiementDataSource interface.
 class PaiementDataSourceImpl implements PaiementDataSource {
@@ -35,6 +39,27 @@ class PaiementDataSourceImpl implements PaiementDataSource {
     return _paiementEndpoint.getMinimumAmount(
       currency,
       currency,
+    );
+  }
+
+  /// Create a paiement.
+  /// @param selectedCurrency the selected currency
+  /// @return the paiement
+  ///
+  @override
+  Future<PaiementRemoteModel?> createPaiement(
+    Currency selectedCurrency,
+    Product product,
+  ) {
+    return _paiementEndpoint.createPaiement(
+      CreatePaiementBody(
+        priceAmount: product.price!,
+        priceCurrency: selectedCurrency.value,
+        payCurrency: selectedCurrency.value,
+        orderDescription: 'Order description',
+        isFixedRate: false,
+        isFeePaidByUser: true,
+      ),
     );
   }
 }

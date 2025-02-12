@@ -16,15 +16,20 @@ import '../../application/injection/domain.module.dart' as _i519;
 import '../../application/injection/foundation.module.dart' as _i1053;
 import '../../data/data_source/local/authentication.local.data_source.dart'
     as _i250;
+import '../../data/data_source/local/product.local.data_source.dart' as _i229;
 import '../../data/data_source/remote/paiement.data_source.dart' as _i782;
 import '../../data/endpoint/paiement.endpoint.dart' as _i236;
 import '../../data/repository/authentication.repository.dart' as _i361;
 import '../../data/repository/paiement.repository.dart' as _i832;
+import '../../data/repository/product.repository.dart' as _i118;
 import '../../domain/service/firebase.service.dart' as _i1041;
+import '../../domain/service/product.service.dart' as _i382;
 import '../../domain/service/wallet.service.dart' as _i231;
 import '../../usecase/authantication.use_case.dart' as _i1013;
+import '../../usecase/create_paiement.use_case.dart' as _i335;
 import '../../usecase/get_auth_token.use_case.dart' as _i938;
 import '../../usecase/get_minimum_amount_by_currency.use_case.dart' as _i54;
+import '../../usecase/get_products.use_case.dart' as _i403;
 import '../../usecase/save_auth_token.use_case.dart' as _i377;
 import '../app_config.dart' as _i729;
 import '../interface/paiement.interface.dart' as _i395;
@@ -53,6 +58,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i1041.FirebaseService>(() => _i1041.FirebaseService());
     gh.singleton<_i426.DioClient>(
         () => foundationModule.dioClient(gh<_i729.AppConfig>()));
+    gh.factory<_i229.ProductLocalDataSource>(
+        () => dataModule.productLocalDataSource());
     gh.singleton<_i433.HeaderInterceptor>(
         () => foundationModule.headerInterceptor(
               gh<_i426.DioClient>(),
@@ -62,6 +69,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => dataModule.paiementEndpoint(gh<_i426.DioClient>()));
     gh.factory<_i250.AuthenticationLocalDataSource>(() => dataModule
         .authenticationLocalDataSource(gh<_i416.StorageInterface<String>>()));
+    gh.factory<_i118.ProductRepository>(
+        () => dataModule.productRepository(gh<_i229.ProductLocalDataSource>()));
+    gh.factory<_i403.GetProductsUseCase>(
+        () => domainModule.getProductsUseCase(gh<_i118.ProductRepository>()));
+    await gh.singletonAsync<_i382.ProductService>(
+      () => domainModule.productService(gh<_i403.GetProductsUseCase>()),
+      preResolve: true,
+    );
     gh.factory<_i361.AuthenticationRepository>(() => dataModule
         .authenticationRepository(gh<_i250.AuthenticationLocalDataSource>()));
     gh.factory<_i782.PaiementDataSource>(
@@ -76,10 +91,13 @@ extension GetItInjectableX on _i174.GetIt {
         domainModule.authenticationUseCase(gh<_i832.PaiementRepository>()));
     gh.factory<_i54.GetMinimumAmountByCurrencyUseCase>(() => domainModule
         .getMinimumAmountByCurrencyUseCase(gh<_i832.PaiementRepository>()));
+    gh.factory<_i335.CreatePaiementUseCase>(() =>
+        domainModule.createPaiementUseCase(gh<_i832.PaiementRepository>()));
     gh.singleton<_i395.PaiementService>(() => domainModule.paiementService(
           gh<_i1013.AuthenticationUseCase>(),
           gh<_i54.GetMinimumAmountByCurrencyUseCase>(),
           gh<_i377.SaveAuthTokenUseCase>(),
+          gh<_i335.CreatePaiementUseCase>(),
         ));
     gh.singleton<_i231.WalletService>(
         () => domainModule.walletService(gh<_i395.PaiementService>()));
