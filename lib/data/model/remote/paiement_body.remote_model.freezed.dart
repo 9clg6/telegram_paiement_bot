@@ -20,13 +20,17 @@ CreatePaiementBody _$CreatePaiementBodyFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreatePaiementBody {
+  @JsonKey(name: 'price_amount')
   double get priceAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price_currency')
   String get priceCurrency => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pay_currency')
   String get payCurrency => throw _privateConstructorUsedError;
-  String? get ipnCallbackUrl => throw _privateConstructorUsedError;
-  String? get orderId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'order_description')
   String? get orderDescription => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_fixed_rate')
   bool get isFixedRate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_fee_paid_by_user')
   bool get isFeePaidByUser => throw _privateConstructorUsedError;
 
   /// Serializes this CreatePaiementBody to a JSON map.
@@ -46,14 +50,12 @@ abstract class $CreatePaiementBodyCopyWith<$Res> {
       _$CreatePaiementBodyCopyWithImpl<$Res, CreatePaiementBody>;
   @useResult
   $Res call(
-      {double priceAmount,
-      String priceCurrency,
-      String payCurrency,
-      String? ipnCallbackUrl,
-      String? orderId,
-      String? orderDescription,
-      bool isFixedRate,
-      bool isFeePaidByUser});
+      {@JsonKey(name: 'price_amount') double priceAmount,
+      @JsonKey(name: 'price_currency') String priceCurrency,
+      @JsonKey(name: 'pay_currency') String payCurrency,
+      @JsonKey(name: 'order_description') String? orderDescription,
+      @JsonKey(name: 'is_fixed_rate') bool isFixedRate,
+      @JsonKey(name: 'is_fee_paid_by_user') bool isFeePaidByUser});
 }
 
 /// @nodoc
@@ -74,8 +76,6 @@ class _$CreatePaiementBodyCopyWithImpl<$Res, $Val extends CreatePaiementBody>
     Object? priceAmount = null,
     Object? priceCurrency = null,
     Object? payCurrency = null,
-    Object? ipnCallbackUrl = freezed,
-    Object? orderId = freezed,
     Object? orderDescription = freezed,
     Object? isFixedRate = null,
     Object? isFeePaidByUser = null,
@@ -93,14 +93,6 @@ class _$CreatePaiementBodyCopyWithImpl<$Res, $Val extends CreatePaiementBody>
           ? _value.payCurrency
           : payCurrency // ignore: cast_nullable_to_non_nullable
               as String,
-      ipnCallbackUrl: freezed == ipnCallbackUrl
-          ? _value.ipnCallbackUrl
-          : ipnCallbackUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      orderId: freezed == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
-              as String?,
       orderDescription: freezed == orderDescription
           ? _value.orderDescription
           : orderDescription // ignore: cast_nullable_to_non_nullable
@@ -126,14 +118,12 @@ abstract class _$$CreatePaiementBodyImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double priceAmount,
-      String priceCurrency,
-      String payCurrency,
-      String? ipnCallbackUrl,
-      String? orderId,
-      String? orderDescription,
-      bool isFixedRate,
-      bool isFeePaidByUser});
+      {@JsonKey(name: 'price_amount') double priceAmount,
+      @JsonKey(name: 'price_currency') String priceCurrency,
+      @JsonKey(name: 'pay_currency') String payCurrency,
+      @JsonKey(name: 'order_description') String? orderDescription,
+      @JsonKey(name: 'is_fixed_rate') bool isFixedRate,
+      @JsonKey(name: 'is_fee_paid_by_user') bool isFeePaidByUser});
 }
 
 /// @nodoc
@@ -152,8 +142,6 @@ class __$$CreatePaiementBodyImplCopyWithImpl<$Res>
     Object? priceAmount = null,
     Object? priceCurrency = null,
     Object? payCurrency = null,
-    Object? ipnCallbackUrl = freezed,
-    Object? orderId = freezed,
     Object? orderDescription = freezed,
     Object? isFixedRate = null,
     Object? isFeePaidByUser = null,
@@ -171,14 +159,6 @@ class __$$CreatePaiementBodyImplCopyWithImpl<$Res>
           ? _value.payCurrency
           : payCurrency // ignore: cast_nullable_to_non_nullable
               as String,
-      ipnCallbackUrl: freezed == ipnCallbackUrl
-          ? _value.ipnCallbackUrl
-          : ipnCallbackUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      orderId: freezed == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
-              as String?,
       orderDescription: freezed == orderDescription
           ? _value.orderDescription
           : orderDescription // ignore: cast_nullable_to_non_nullable
@@ -199,38 +179,38 @@ class __$$CreatePaiementBodyImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreatePaiementBodyImpl implements _CreatePaiementBody {
   _$CreatePaiementBodyImpl(
-      {required this.priceAmount,
-      required this.priceCurrency,
-      required this.payCurrency,
-      this.ipnCallbackUrl,
-      this.orderId,
-      this.orderDescription,
-      required this.isFixedRate,
-      required this.isFeePaidByUser});
+      {@JsonKey(name: 'price_amount') required this.priceAmount,
+      @JsonKey(name: 'price_currency') required this.priceCurrency,
+      @JsonKey(name: 'pay_currency') required this.payCurrency,
+      @JsonKey(name: 'order_description') this.orderDescription,
+      @JsonKey(name: 'is_fixed_rate') required this.isFixedRate,
+      @JsonKey(name: 'is_fee_paid_by_user') required this.isFeePaidByUser});
 
   factory _$CreatePaiementBodyImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreatePaiementBodyImplFromJson(json);
 
   @override
+  @JsonKey(name: 'price_amount')
   final double priceAmount;
   @override
+  @JsonKey(name: 'price_currency')
   final String priceCurrency;
   @override
+  @JsonKey(name: 'pay_currency')
   final String payCurrency;
   @override
-  final String? ipnCallbackUrl;
-  @override
-  final String? orderId;
-  @override
+  @JsonKey(name: 'order_description')
   final String? orderDescription;
   @override
+  @JsonKey(name: 'is_fixed_rate')
   final bool isFixedRate;
   @override
+  @JsonKey(name: 'is_fee_paid_by_user')
   final bool isFeePaidByUser;
 
   @override
   String toString() {
-    return 'CreatePaiementBody(priceAmount: $priceAmount, priceCurrency: $priceCurrency, payCurrency: $payCurrency, ipnCallbackUrl: $ipnCallbackUrl, orderId: $orderId, orderDescription: $orderDescription, isFixedRate: $isFixedRate, isFeePaidByUser: $isFeePaidByUser)';
+    return 'CreatePaiementBody(priceAmount: $priceAmount, priceCurrency: $priceCurrency, payCurrency: $payCurrency, orderDescription: $orderDescription, isFixedRate: $isFixedRate, isFeePaidByUser: $isFeePaidByUser)';
   }
 
   @override
@@ -244,9 +224,6 @@ class _$CreatePaiementBodyImpl implements _CreatePaiementBody {
                 other.priceCurrency == priceCurrency) &&
             (identical(other.payCurrency, payCurrency) ||
                 other.payCurrency == payCurrency) &&
-            (identical(other.ipnCallbackUrl, ipnCallbackUrl) ||
-                other.ipnCallbackUrl == ipnCallbackUrl) &&
-            (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.orderDescription, orderDescription) ||
                 other.orderDescription == orderDescription) &&
             (identical(other.isFixedRate, isFixedRate) ||
@@ -257,16 +234,8 @@ class _$CreatePaiementBodyImpl implements _CreatePaiementBody {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      priceAmount,
-      priceCurrency,
-      payCurrency,
-      ipnCallbackUrl,
-      orderId,
-      orderDescription,
-      isFixedRate,
-      isFeePaidByUser);
+  int get hashCode => Object.hash(runtimeType, priceAmount, priceCurrency,
+      payCurrency, orderDescription, isFixedRate, isFeePaidByUser);
 
   /// Create a copy of CreatePaiementBody
   /// with the given fields replaced by the non-null parameter values.
@@ -287,33 +256,34 @@ class _$CreatePaiementBodyImpl implements _CreatePaiementBody {
 
 abstract class _CreatePaiementBody implements CreatePaiementBody {
   factory _CreatePaiementBody(
-      {required final double priceAmount,
-      required final String priceCurrency,
-      required final String payCurrency,
-      final String? ipnCallbackUrl,
-      final String? orderId,
-      final String? orderDescription,
-      required final bool isFixedRate,
+      {@JsonKey(name: 'price_amount') required final double priceAmount,
+      @JsonKey(name: 'price_currency') required final String priceCurrency,
+      @JsonKey(name: 'pay_currency') required final String payCurrency,
+      @JsonKey(name: 'order_description') final String? orderDescription,
+      @JsonKey(name: 'is_fixed_rate') required final bool isFixedRate,
+      @JsonKey(name: 'is_fee_paid_by_user')
       required final bool isFeePaidByUser}) = _$CreatePaiementBodyImpl;
 
   factory _CreatePaiementBody.fromJson(Map<String, dynamic> json) =
       _$CreatePaiementBodyImpl.fromJson;
 
   @override
+  @JsonKey(name: 'price_amount')
   double get priceAmount;
   @override
+  @JsonKey(name: 'price_currency')
   String get priceCurrency;
   @override
+  @JsonKey(name: 'pay_currency')
   String get payCurrency;
   @override
-  String? get ipnCallbackUrl;
-  @override
-  String? get orderId;
-  @override
+  @JsonKey(name: 'order_description')
   String? get orderDescription;
   @override
+  @JsonKey(name: 'is_fixed_rate')
   bool get isFixedRate;
   @override
+  @JsonKey(name: 'is_fee_paid_by_user')
   bool get isFeePaidByUser;
 
   /// Create a copy of CreatePaiementBody

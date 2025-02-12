@@ -88,4 +88,12 @@ class NowPaiementsService implements PaiementService {
 
     return paiement?.payAddress;
   }
+
+  /// Select the currency
+  /// @param currency the currency
+  ///
+  @override
+  void selectCurrency(Currency currency) {
+    _selectedCurrency = currency;
+  }
 }

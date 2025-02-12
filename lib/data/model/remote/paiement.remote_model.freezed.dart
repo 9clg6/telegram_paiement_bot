@@ -20,33 +20,61 @@ PaiementRemoteModel _$PaiementRemoteModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PaiementRemoteModel {
+  @JsonKey(name: 'payment_id')
   String? get paymentId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'payment_status')
   String? get paymentStatus => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pay_address')
   String? get payAddress => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price_amount')
   double? get priceAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'price_currency')
   String? get priceCurrency => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pay_amount')
   double? get payAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'amount_received')
   double? get amountReceived => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pay_currency')
   String? get payCurrency => throw _privateConstructorUsedError;
+  @JsonKey(name: 'order_id')
   String? get orderId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'order_description')
   String? get orderDescription => throw _privateConstructorUsedError;
+  @JsonKey(name: 'payin_extra_id')
   String? get payinExtraId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'ipn_callback_url')
   String? get ipnCallbackUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'customer_email')
   String? get customerEmail => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
   DateTime? get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'purchase_id')
   String? get purchaseId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'smart_contract')
   String? get smartContract => throw _privateConstructorUsedError;
+  @JsonKey(name: 'network')
   String? get network => throw _privateConstructorUsedError;
+  @JsonKey(name: 'network_precision')
   String? get networkPrecision => throw _privateConstructorUsedError;
+  @JsonKey(name: 'time_limit')
   String? get timeLimit => throw _privateConstructorUsedError;
+  @JsonKey(name: 'burning_percent')
   String? get burningPercent => throw _privateConstructorUsedError;
+  @JsonKey(name: 'expiration_estimate_date')
   DateTime? get expirationEstimateDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_fixed_rate')
   bool? get isFixedRate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_fee_paid_by_user')
   bool? get isFeePaidByUser => throw _privateConstructorUsedError;
+  @JsonKey(name: 'valid_until')
   DateTime? get validUntil => throw _privateConstructorUsedError;
+  @JsonKey(name: 'type')
   String? get type => throw _privateConstructorUsedError;
+  @JsonKey(name: 'product')
   String? get product => throw _privateConstructorUsedError;
+  @JsonKey(name: 'origin_ip')
   String? get originIp => throw _privateConstructorUsedError;
 
   /// Serializes this PaiementRemoteModel to a JSON map.
@@ -66,34 +94,35 @@ abstract class $PaiementRemoteModelCopyWith<$Res> {
       _$PaiementRemoteModelCopyWithImpl<$Res, PaiementRemoteModel>;
   @useResult
   $Res call(
-      {String? paymentId,
-      String? paymentStatus,
-      String? payAddress,
-      double? priceAmount,
-      String? priceCurrency,
-      double? payAmount,
-      double? amountReceived,
-      String? payCurrency,
-      String? orderId,
-      String? orderDescription,
-      String? payinExtraId,
-      String? ipnCallbackUrl,
-      String? customerEmail,
-      DateTime? createdAt,
-      DateTime? updatedAt,
-      String? purchaseId,
-      String? smartContract,
-      String? network,
-      String? networkPrecision,
-      String? timeLimit,
-      String? burningPercent,
+      {@JsonKey(name: 'payment_id') String? paymentId,
+      @JsonKey(name: 'payment_status') String? paymentStatus,
+      @JsonKey(name: 'pay_address') String? payAddress,
+      @JsonKey(name: 'price_amount') double? priceAmount,
+      @JsonKey(name: 'price_currency') String? priceCurrency,
+      @JsonKey(name: 'pay_amount') double? payAmount,
+      @JsonKey(name: 'amount_received') double? amountReceived,
+      @JsonKey(name: 'pay_currency') String? payCurrency,
+      @JsonKey(name: 'order_id') String? orderId,
+      @JsonKey(name: 'order_description') String? orderDescription,
+      @JsonKey(name: 'payin_extra_id') String? payinExtraId,
+      @JsonKey(name: 'ipn_callback_url') String? ipnCallbackUrl,
+      @JsonKey(name: 'customer_email') String? customerEmail,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      @JsonKey(name: 'purchase_id') String? purchaseId,
+      @JsonKey(name: 'smart_contract') String? smartContract,
+      @JsonKey(name: 'network') String? network,
+      @JsonKey(name: 'network_precision') String? networkPrecision,
+      @JsonKey(name: 'time_limit') String? timeLimit,
+      @JsonKey(name: 'burning_percent') String? burningPercent,
+      @JsonKey(name: 'expiration_estimate_date')
       DateTime? expirationEstimateDate,
-      bool? isFixedRate,
-      bool? isFeePaidByUser,
-      DateTime? validUntil,
-      String? type,
-      String? product,
-      String? originIp});
+      @JsonKey(name: 'is_fixed_rate') bool? isFixedRate,
+      @JsonKey(name: 'is_fee_paid_by_user') bool? isFeePaidByUser,
+      @JsonKey(name: 'valid_until') DateTime? validUntil,
+      @JsonKey(name: 'type') String? type,
+      @JsonKey(name: 'product') String? product,
+      @JsonKey(name: 'origin_ip') String? originIp});
 }
 
 /// @nodoc
@@ -266,34 +295,35 @@ abstract class _$$PaiementRemoteModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? paymentId,
-      String? paymentStatus,
-      String? payAddress,
-      double? priceAmount,
-      String? priceCurrency,
-      double? payAmount,
-      double? amountReceived,
-      String? payCurrency,
-      String? orderId,
-      String? orderDescription,
-      String? payinExtraId,
-      String? ipnCallbackUrl,
-      String? customerEmail,
-      DateTime? createdAt,
-      DateTime? updatedAt,
-      String? purchaseId,
-      String? smartContract,
-      String? network,
-      String? networkPrecision,
-      String? timeLimit,
-      String? burningPercent,
+      {@JsonKey(name: 'payment_id') String? paymentId,
+      @JsonKey(name: 'payment_status') String? paymentStatus,
+      @JsonKey(name: 'pay_address') String? payAddress,
+      @JsonKey(name: 'price_amount') double? priceAmount,
+      @JsonKey(name: 'price_currency') String? priceCurrency,
+      @JsonKey(name: 'pay_amount') double? payAmount,
+      @JsonKey(name: 'amount_received') double? amountReceived,
+      @JsonKey(name: 'pay_currency') String? payCurrency,
+      @JsonKey(name: 'order_id') String? orderId,
+      @JsonKey(name: 'order_description') String? orderDescription,
+      @JsonKey(name: 'payin_extra_id') String? payinExtraId,
+      @JsonKey(name: 'ipn_callback_url') String? ipnCallbackUrl,
+      @JsonKey(name: 'customer_email') String? customerEmail,
+      @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'updated_at') DateTime? updatedAt,
+      @JsonKey(name: 'purchase_id') String? purchaseId,
+      @JsonKey(name: 'smart_contract') String? smartContract,
+      @JsonKey(name: 'network') String? network,
+      @JsonKey(name: 'network_precision') String? networkPrecision,
+      @JsonKey(name: 'time_limit') String? timeLimit,
+      @JsonKey(name: 'burning_percent') String? burningPercent,
+      @JsonKey(name: 'expiration_estimate_date')
       DateTime? expirationEstimateDate,
-      bool? isFixedRate,
-      bool? isFeePaidByUser,
-      DateTime? validUntil,
-      String? type,
-      String? product,
-      String? originIp});
+      @JsonKey(name: 'is_fixed_rate') bool? isFixedRate,
+      @JsonKey(name: 'is_fee_paid_by_user') bool? isFeePaidByUser,
+      @JsonKey(name: 'valid_until') DateTime? validUntil,
+      @JsonKey(name: 'type') String? type,
+      @JsonKey(name: 'product') String? product,
+      @JsonKey(name: 'origin_ip') String? originIp});
 }
 
 /// @nodoc
@@ -459,93 +489,121 @@ class __$$PaiementRemoteModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PaiementRemoteModelImpl implements _PaiementRemoteModel {
   _$PaiementRemoteModelImpl(
-      {this.paymentId,
-      this.paymentStatus,
-      this.payAddress,
-      this.priceAmount,
-      this.priceCurrency,
-      this.payAmount,
-      this.amountReceived,
-      this.payCurrency,
-      this.orderId,
-      this.orderDescription,
-      this.payinExtraId,
-      this.ipnCallbackUrl,
-      this.customerEmail,
-      this.createdAt,
-      this.updatedAt,
-      this.purchaseId,
-      this.smartContract,
-      this.network,
-      this.networkPrecision,
-      this.timeLimit,
-      this.burningPercent,
-      this.expirationEstimateDate,
-      this.isFixedRate,
-      this.isFeePaidByUser,
-      this.validUntil,
-      this.type,
-      this.product,
-      this.originIp});
+      {@JsonKey(name: 'payment_id') this.paymentId,
+      @JsonKey(name: 'payment_status') this.paymentStatus,
+      @JsonKey(name: 'pay_address') this.payAddress,
+      @JsonKey(name: 'price_amount') this.priceAmount,
+      @JsonKey(name: 'price_currency') this.priceCurrency,
+      @JsonKey(name: 'pay_amount') this.payAmount,
+      @JsonKey(name: 'amount_received') this.amountReceived,
+      @JsonKey(name: 'pay_currency') this.payCurrency,
+      @JsonKey(name: 'order_id') this.orderId,
+      @JsonKey(name: 'order_description') this.orderDescription,
+      @JsonKey(name: 'payin_extra_id') this.payinExtraId,
+      @JsonKey(name: 'ipn_callback_url') this.ipnCallbackUrl,
+      @JsonKey(name: 'customer_email') this.customerEmail,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      @JsonKey(name: 'purchase_id') this.purchaseId,
+      @JsonKey(name: 'smart_contract') this.smartContract,
+      @JsonKey(name: 'network') this.network,
+      @JsonKey(name: 'network_precision') this.networkPrecision,
+      @JsonKey(name: 'time_limit') this.timeLimit,
+      @JsonKey(name: 'burning_percent') this.burningPercent,
+      @JsonKey(name: 'expiration_estimate_date') this.expirationEstimateDate,
+      @JsonKey(name: 'is_fixed_rate') this.isFixedRate,
+      @JsonKey(name: 'is_fee_paid_by_user') this.isFeePaidByUser,
+      @JsonKey(name: 'valid_until') this.validUntil,
+      @JsonKey(name: 'type') this.type,
+      @JsonKey(name: 'product') this.product,
+      @JsonKey(name: 'origin_ip') this.originIp});
 
   factory _$PaiementRemoteModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PaiementRemoteModelImplFromJson(json);
 
   @override
+  @JsonKey(name: 'payment_id')
   final String? paymentId;
   @override
+  @JsonKey(name: 'payment_status')
   final String? paymentStatus;
   @override
+  @JsonKey(name: 'pay_address')
   final String? payAddress;
   @override
+  @JsonKey(name: 'price_amount')
   final double? priceAmount;
   @override
+  @JsonKey(name: 'price_currency')
   final String? priceCurrency;
   @override
+  @JsonKey(name: 'pay_amount')
   final double? payAmount;
   @override
+  @JsonKey(name: 'amount_received')
   final double? amountReceived;
   @override
+  @JsonKey(name: 'pay_currency')
   final String? payCurrency;
   @override
+  @JsonKey(name: 'order_id')
   final String? orderId;
   @override
+  @JsonKey(name: 'order_description')
   final String? orderDescription;
   @override
+  @JsonKey(name: 'payin_extra_id')
   final String? payinExtraId;
   @override
+  @JsonKey(name: 'ipn_callback_url')
   final String? ipnCallbackUrl;
   @override
+  @JsonKey(name: 'customer_email')
   final String? customerEmail;
   @override
+  @JsonKey(name: 'created_at')
   final DateTime? createdAt;
   @override
+  @JsonKey(name: 'updated_at')
   final DateTime? updatedAt;
   @override
+  @JsonKey(name: 'purchase_id')
   final String? purchaseId;
   @override
+  @JsonKey(name: 'smart_contract')
   final String? smartContract;
   @override
+  @JsonKey(name: 'network')
   final String? network;
   @override
+  @JsonKey(name: 'network_precision')
   final String? networkPrecision;
   @override
+  @JsonKey(name: 'time_limit')
   final String? timeLimit;
   @override
+  @JsonKey(name: 'burning_percent')
   final String? burningPercent;
   @override
+  @JsonKey(name: 'expiration_estimate_date')
   final DateTime? expirationEstimateDate;
   @override
+  @JsonKey(name: 'is_fixed_rate')
   final bool? isFixedRate;
   @override
+  @JsonKey(name: 'is_fee_paid_by_user')
   final bool? isFeePaidByUser;
   @override
+  @JsonKey(name: 'valid_until')
   final DateTime? validUntil;
   @override
+  @JsonKey(name: 'type')
   final String? type;
   @override
+  @JsonKey(name: 'product')
   final String? product;
   @override
+  @JsonKey(name: 'origin_ip')
   final String? originIp;
 
   @override
@@ -665,93 +723,123 @@ class _$PaiementRemoteModelImpl implements _PaiementRemoteModel {
 
 abstract class _PaiementRemoteModel implements PaiementRemoteModel {
   factory _PaiementRemoteModel(
-      {final String? paymentId,
-      final String? paymentStatus,
-      final String? payAddress,
-      final double? priceAmount,
-      final String? priceCurrency,
-      final double? payAmount,
-      final double? amountReceived,
-      final String? payCurrency,
-      final String? orderId,
-      final String? orderDescription,
-      final String? payinExtraId,
-      final String? ipnCallbackUrl,
-      final String? customerEmail,
-      final DateTime? createdAt,
-      final DateTime? updatedAt,
-      final String? purchaseId,
-      final String? smartContract,
-      final String? network,
-      final String? networkPrecision,
-      final String? timeLimit,
-      final String? burningPercent,
-      final DateTime? expirationEstimateDate,
-      final bool? isFixedRate,
-      final bool? isFeePaidByUser,
-      final DateTime? validUntil,
-      final String? type,
-      final String? product,
-      final String? originIp}) = _$PaiementRemoteModelImpl;
+          {@JsonKey(name: 'payment_id') final String? paymentId,
+          @JsonKey(name: 'payment_status') final String? paymentStatus,
+          @JsonKey(name: 'pay_address') final String? payAddress,
+          @JsonKey(name: 'price_amount') final double? priceAmount,
+          @JsonKey(name: 'price_currency') final String? priceCurrency,
+          @JsonKey(name: 'pay_amount') final double? payAmount,
+          @JsonKey(name: 'amount_received') final double? amountReceived,
+          @JsonKey(name: 'pay_currency') final String? payCurrency,
+          @JsonKey(name: 'order_id') final String? orderId,
+          @JsonKey(name: 'order_description') final String? orderDescription,
+          @JsonKey(name: 'payin_extra_id') final String? payinExtraId,
+          @JsonKey(name: 'ipn_callback_url') final String? ipnCallbackUrl,
+          @JsonKey(name: 'customer_email') final String? customerEmail,
+          @JsonKey(name: 'created_at') final DateTime? createdAt,
+          @JsonKey(name: 'updated_at') final DateTime? updatedAt,
+          @JsonKey(name: 'purchase_id') final String? purchaseId,
+          @JsonKey(name: 'smart_contract') final String? smartContract,
+          @JsonKey(name: 'network') final String? network,
+          @JsonKey(name: 'network_precision') final String? networkPrecision,
+          @JsonKey(name: 'time_limit') final String? timeLimit,
+          @JsonKey(name: 'burning_percent') final String? burningPercent,
+          @JsonKey(name: 'expiration_estimate_date')
+          final DateTime? expirationEstimateDate,
+          @JsonKey(name: 'is_fixed_rate') final bool? isFixedRate,
+          @JsonKey(name: 'is_fee_paid_by_user') final bool? isFeePaidByUser,
+          @JsonKey(name: 'valid_until') final DateTime? validUntil,
+          @JsonKey(name: 'type') final String? type,
+          @JsonKey(name: 'product') final String? product,
+          @JsonKey(name: 'origin_ip') final String? originIp}) =
+      _$PaiementRemoteModelImpl;
 
   factory _PaiementRemoteModel.fromJson(Map<String, dynamic> json) =
       _$PaiementRemoteModelImpl.fromJson;
 
   @override
+  @JsonKey(name: 'payment_id')
   String? get paymentId;
   @override
+  @JsonKey(name: 'payment_status')
   String? get paymentStatus;
   @override
+  @JsonKey(name: 'pay_address')
   String? get payAddress;
   @override
+  @JsonKey(name: 'price_amount')
   double? get priceAmount;
   @override
+  @JsonKey(name: 'price_currency')
   String? get priceCurrency;
   @override
+  @JsonKey(name: 'pay_amount')
   double? get payAmount;
   @override
+  @JsonKey(name: 'amount_received')
   double? get amountReceived;
   @override
+  @JsonKey(name: 'pay_currency')
   String? get payCurrency;
   @override
+  @JsonKey(name: 'order_id')
   String? get orderId;
   @override
+  @JsonKey(name: 'order_description')
   String? get orderDescription;
   @override
+  @JsonKey(name: 'payin_extra_id')
   String? get payinExtraId;
   @override
+  @JsonKey(name: 'ipn_callback_url')
   String? get ipnCallbackUrl;
   @override
+  @JsonKey(name: 'customer_email')
   String? get customerEmail;
   @override
+  @JsonKey(name: 'created_at')
   DateTime? get createdAt;
   @override
+  @JsonKey(name: 'updated_at')
   DateTime? get updatedAt;
   @override
+  @JsonKey(name: 'purchase_id')
   String? get purchaseId;
   @override
+  @JsonKey(name: 'smart_contract')
   String? get smartContract;
   @override
+  @JsonKey(name: 'network')
   String? get network;
   @override
+  @JsonKey(name: 'network_precision')
   String? get networkPrecision;
   @override
+  @JsonKey(name: 'time_limit')
   String? get timeLimit;
   @override
+  @JsonKey(name: 'burning_percent')
   String? get burningPercent;
   @override
+  @JsonKey(name: 'expiration_estimate_date')
   DateTime? get expirationEstimateDate;
   @override
+  @JsonKey(name: 'is_fixed_rate')
   bool? get isFixedRate;
   @override
+  @JsonKey(name: 'is_fee_paid_by_user')
   bool? get isFeePaidByUser;
   @override
+  @JsonKey(name: 'valid_until')
   DateTime? get validUntil;
   @override
+  @JsonKey(name: 'type')
   String? get type;
   @override
+  @JsonKey(name: 'product')
   String? get product;
   @override
+  @JsonKey(name: 'origin_ip')
   String? get originIp;
 
   /// Create a copy of PaiementRemoteModel

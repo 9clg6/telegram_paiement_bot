@@ -245,6 +245,7 @@ class TelegramBot {
       bot!.text(
         command.libelle!,
         (ctx) async {
+          injector.get<PaiementService>().selectCurrency(currency);
           await ctx.reply(
             "Vous pouvez maintenant effectuer votre paiement",
             replyMarkup: Keyboard().row().text(Commands.pay.libelle!),

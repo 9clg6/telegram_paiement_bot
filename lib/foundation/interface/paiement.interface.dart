@@ -26,4 +26,9 @@ abstract class PaiementService {
     required Product product,
     required String? username,
   });
+
+  /// Select the currency
+  /// @param currency the currency
+  ///
+  void selectCurrency(Currency currency);
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'paiement_body.remote_model.freezed.dart';
@@ -10,21 +12,17 @@ class CreatePaiementBody with _$CreatePaiementBody {
   /// @param priceAmount the price amount
   /// @param priceCurrency the price currency
   /// @param payCurrency the pay currency
-  /// @param ipnCallbackUrl the ipn callback url
-  /// @param orderId the order id
   /// @param orderDescription the order description
   /// @param isFixedRate the is fixed rate
   /// @param isFeePaidByUser the is fee paid by user
   ///
   factory CreatePaiementBody({
-    required double priceAmount,
-    required String priceCurrency,
-    required String payCurrency,
-    String? ipnCallbackUrl,
-    String? orderId,
-    String? orderDescription,
-    required bool isFixedRate,
-    required bool isFeePaidByUser,
+    @JsonKey(name: 'price_amount') required double priceAmount,
+    @JsonKey(name: 'price_currency') required String priceCurrency,
+    @JsonKey(name: 'pay_currency') required String payCurrency,
+    @JsonKey(name: 'order_description') String? orderDescription,
+    @JsonKey(name: 'is_fixed_rate') required bool isFixedRate,
+    @JsonKey(name: 'is_fee_paid_by_user') required bool isFeePaidByUser,
   }) = _CreatePaiementBody;
 
   /// FromJson.

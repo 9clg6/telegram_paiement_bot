@@ -9,25 +9,21 @@ part of 'paiement_body.remote_model.dart';
 _$CreatePaiementBodyImpl _$$CreatePaiementBodyImplFromJson(
         Map<String, dynamic> json) =>
     _$CreatePaiementBodyImpl(
-      priceAmount: (json['priceAmount'] as num).toDouble(),
-      priceCurrency: json['priceCurrency'] as String,
-      payCurrency: json['payCurrency'] as String,
-      ipnCallbackUrl: json['ipnCallbackUrl'] as String?,
-      orderId: json['orderId'] as String?,
-      orderDescription: json['orderDescription'] as String?,
-      isFixedRate: json['isFixedRate'] as bool,
-      isFeePaidByUser: json['isFeePaidByUser'] as bool,
+      priceAmount: (json['price_amount'] as num).toDouble(),
+      priceCurrency: json['price_currency'] as String,
+      payCurrency: json['pay_currency'] as String,
+      orderDescription: json['order_description'] as String?,
+      isFixedRate: json['is_fixed_rate'] as bool,
+      isFeePaidByUser: json['is_fee_paid_by_user'] as bool,
     );
 
 Map<String, dynamic> _$$CreatePaiementBodyImplToJson(
         _$CreatePaiementBodyImpl instance) =>
     <String, dynamic>{
-      'priceAmount': instance.priceAmount,
-      'priceCurrency': instance.priceCurrency,
-      'payCurrency': instance.payCurrency,
-      'ipnCallbackUrl': instance.ipnCallbackUrl,
-      'orderId': instance.orderId,
-      'orderDescription': instance.orderDescription,
-      'isFixedRate': instance.isFixedRate,
-      'isFeePaidByUser': instance.isFeePaidByUser,
+      'price_amount': instance.priceAmount,
+      'price_currency': instance.priceCurrency,
+      'pay_currency': instance.payCurrency,
+      'order_description': instance.orderDescription,
+      'is_fixed_rate': instance.isFixedRate,
+      'is_fee_paid_by_user': instance.isFeePaidByUser,
     };

@@ -1,10 +1,13 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'paiement.remote_model.freezed.dart';
 part 'paiement.remote_model.g.dart';
 
 /// A class representing a paiement.
-@freezed
+@Freezed(
+)
 class PaiementRemoteModel with _$PaiementRemoteModel {
   /// Create a new [PaiementRemoteModel].
   /// @param paymentId the payment id
@@ -37,34 +40,34 @@ class PaiementRemoteModel with _$PaiementRemoteModel {
   /// @param originIp the origin ip
   /// 
   factory PaiementRemoteModel({
-    String? paymentId,
-    String? paymentStatus,
-    String? payAddress,
-    double? priceAmount,
-    String? priceCurrency,
-    double? payAmount,
-    double? amountReceived,
-    String? payCurrency,
-    String? orderId,
-    String? orderDescription,
-    String? payinExtraId,
-    String? ipnCallbackUrl,
-    String? customerEmail,
-    DateTime? createdAt,
-    DateTime? updatedAt,
-    String? purchaseId,
-    String? smartContract,
-    String? network,
-    String? networkPrecision,
-    String? timeLimit,
-    String? burningPercent,
-    DateTime? expirationEstimateDate,
-    bool? isFixedRate,
-    bool? isFeePaidByUser,
-    DateTime? validUntil,
-    String? type,
-    String? product,
-    String? originIp,
+    @JsonKey(name: 'payment_id') String? paymentId,
+    @JsonKey(name: 'payment_status') String? paymentStatus,
+    @JsonKey(name: 'pay_address') String? payAddress,
+    @JsonKey(name: 'price_amount') double? priceAmount,
+    @JsonKey(name: 'price_currency') String? priceCurrency,
+    @JsonKey(name: 'pay_amount') double? payAmount,
+    @JsonKey(name: 'amount_received') double? amountReceived,
+    @JsonKey(name: 'pay_currency') String? payCurrency,
+    @JsonKey(name: 'order_id') String? orderId,
+    @JsonKey(name: 'order_description') String? orderDescription,
+    @JsonKey(name: 'payin_extra_id') String? payinExtraId,
+    @JsonKey(name: 'ipn_callback_url') String? ipnCallbackUrl,
+    @JsonKey(name: 'customer_email') String? customerEmail,
+    @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'updated_at') DateTime? updatedAt,
+    @JsonKey(name: 'purchase_id') String? purchaseId,
+    @JsonKey(name: 'smart_contract') String? smartContract,
+    @JsonKey(name: 'network') String? network,
+    @JsonKey(name: 'network_precision') String? networkPrecision,
+    @JsonKey(name: 'time_limit') String? timeLimit,
+    @JsonKey(name: 'burning_percent') String? burningPercent,
+    @JsonKey(name: 'expiration_estimate_date') DateTime? expirationEstimateDate,
+    @JsonKey(name: 'is_fixed_rate') bool? isFixedRate,
+    @JsonKey(name: 'is_fee_paid_by_user') bool? isFeePaidByUser,
+    @JsonKey(name: 'valid_until') DateTime? validUntil,
+    @JsonKey(name: 'type') String? type,
+    @JsonKey(name: 'product') String? product,
+    @JsonKey(name: 'origin_ip') String? originIp,
   }) = _PaiementRemoteModel;
 
   /// Convert a [PaiementRemoteModel] to a [PaiementRemoteModel].
