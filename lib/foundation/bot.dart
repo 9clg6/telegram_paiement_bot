@@ -1,17 +1,13 @@
 import 'package:firedart/firedart.dart';
-import 'package:telegram_paiement_bot/domain/entity/minimum_amount.entity.dart';
 import 'package:telegram_paiement_bot/domain/entity/product.entity.dart';
 import 'package:telegram_paiement_bot/domain/enum/commands.dart';
 import 'package:telegram_paiement_bot/domain/enum/currency.dart';
 import 'package:telegram_paiement_bot/domain/service/firebase.service.dart';
-import 'package:telegram_paiement_bot/domain/service/nowpaiements.service.dart';
 import 'package:telegram_paiement_bot/domain/service/product.service.dart';
-import 'package:telegram_paiement_bot/domain/service/wallet.service.dart';
 import 'package:telegram_paiement_bot/foundation/env.dart';
 import 'package:telegram_paiement_bot/foundation/injection/injector.dart';
 import 'package:telegram_paiement_bot/foundation/interface/paiement.interface.dart';
 import 'package:telegram_paiement_bot/foundation/middleware/custom.middleware.dart';
-import 'package:televerse/telegram.dart';
 import 'package:televerse/televerse.dart';
 
 /// Bot
@@ -59,7 +55,7 @@ class TelegramBot {
 
     _registerCreateWalletInnerCommand();
     _registerOrderInnerCommand();
-    _registerFeedWalletInnerCommand();
+    // _registerFeedWalletInnerCommand();
     _registerSelectCurrencyInnerCommand();
     _registerSelectCurrencyCommand();
     _registerPayCommand();
@@ -176,7 +172,21 @@ class TelegramBot {
   ///
   void _registerPayCommand() {
     bot!.text(Commands.pay.libelle!, (ctx) async {
-      await ctx.reply("test");
+      await ctx.reply(
+        "Création de la transaction...",
+      );
+      final ProductService productService = injector.get<ProductService>();
+      final PaiementService paiementService = injector.get<PaiementService>();
+
+      final String? payAddress = await paiementService.createPaiement(
+        product: productService.selectedProduct!,
+        username: (await ctx.getAuthor()).user.username,
+      );
+
+      await ctx.reply(
+        "Adresse de paiement : $payAddress",
+        replyMarkup: Keyboard().row().text(Commands.pay.libelle!),
+      );
     });
   }
 
@@ -188,7 +198,7 @@ class TelegramBot {
   }
 
   /// Helper method to register products recursively
-  /// 
+  ///
   void _registerProductsRecursively(List<Product> products) {
     for (final Product product in products) {
       if (product.name == null) continue;
@@ -198,13 +208,11 @@ class TelegramBot {
       } else {
         bot!.text(product.name!, (ctx) async {
           injector.get<ProductService>().selectedProduct = product;
-          
+
           await ctx.reply(
             "Vous avez sélectionné le produit ${product.name} pour un montant de ${product.price}€",
-          );
-          await ctx.reply(
-            "Pour que votre commande soit prise en compte, veuillez procéder au paiement",
-            replyMarkup: Keyboard().row().text(Commands.pay.libelle!),
+            replyMarkup:
+                Keyboard().row().text(Commands.selectCurrency.libelle!),
           );
         });
       }
@@ -237,15 +245,9 @@ class TelegramBot {
       bot!.text(
         command.libelle!,
         (ctx) async {
-          injector.get<WalletService>()
-            ..selectCurrency(currency)
-            ..createPaiement(injector.get<ProductService>().selectedProduct!);
-
           await ctx.reply(
-            "Vous pouvez maintenant effectuer votre paiement sur l'adresse indiquée",
-            replyMarkup: Keyboard().row().text(
-                  Commands.createWallet.libelle!,
-                ),
+            "Vous pouvez maintenant effectuer votre paiement",
+            replyMarkup: Keyboard().row().text(Commands.pay.libelle!),
           );
         },
       );
@@ -268,27 +270,27 @@ class TelegramBot {
     });
   }
 
-  /// Register the feed wallet command.
-  ///
-  void _registerFeedWalletInnerCommand() {
-    bot!.text(Commands.feedWallet.libelle!, (ctx) async {
-      final WalletService walletService = injector.get<WalletService>();
-      final MinimumAmountEntity? minimumAmount = await injector
-          .get<NowPaiementsService>()
-          .getMinimumAmount(walletService.selectedCurrency);
+  // /// Register the feed wallet command.
+  // ///
+  // void _registerFeedWalletInnerCommand() {
+  //   bot!.text(Commands.feedWallet.libelle!, (ctx) async {
+  //     final WalletService walletService = injector.get<WalletService>();
+  //     final MinimumAmountEntity? minimumAmount = await injector
+  //         .get<NowPaiementsService>()
+  //         .getMinimumAmount(walletService.selectedCurrency);
 
-      await ctx.reply(
-          "🪙 Cryptomonnaie sélectionnée : ${walletService.selectedCurrency}");
-      await ctx.reply("----------------");
-      await ctx.reply("❗️ MONTANT MINIMUM : $minimumAmount");
-      await ctx.reply("----------------");
-      await Future.delayed(const Duration(milliseconds: 500));
-      await ctx.reply(
-        "🚀 Adresse du portefeuille :",
-        replyMarkup: ReplyKeyboardRemove(),
-      );
-    });
-  }
+  //     await ctx.reply(
+  //         "🪙 Cryptomonnaie sélectionnée : ${walletService.selectedCurrency}");
+  //     await ctx.reply("----------------");
+  //     await ctx.reply("❗️ MONTANT MINIMUM : $minimumAmount");
+  //     await ctx.reply("----------------");
+  //     await Future.delayed(const Duration(milliseconds: 500));
+  //     await ctx.reply(
+  //       "🚀 Adresse du portefeuille :",
+  //       replyMarkup: ReplyKeyboardRemove(),
+  //     );
+  //   });
+  // }
 
   /// Register the create wallet command.
   ///

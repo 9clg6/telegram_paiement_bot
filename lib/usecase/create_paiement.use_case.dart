@@ -21,10 +21,12 @@ class CreatePaiementUseCase {
   Future<PaiementEntity?> execute(
     Currency selectedCurrency,
     Product product,
+    String? username,
   ) async {
     return paiementRepository.createPaiement(
       selectedCurrency,
       product,
+      username,
     );
   }
 }

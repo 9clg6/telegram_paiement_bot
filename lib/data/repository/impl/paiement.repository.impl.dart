@@ -58,10 +58,12 @@ class PaiementRepositoryImpl implements PaiementRepository {
   Future<PaiementEntity?> createPaiement(
     Currency selectedCurrency,
     Product product,
+    String? username,
   ) async {
     final paiementRemoteModel = await _paiementDatasource.createPaiement(
       selectedCurrency,
       product,
+      username,
     );
 
     return paiementRemoteModel != null

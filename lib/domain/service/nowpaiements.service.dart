@@ -25,6 +25,14 @@ class NowPaiementsService implements PaiementService {
   /// The paiement use case.
   final CreatePaiementUseCase _createPaiementUseCase;
 
+  /// The selected currency
+  Currency? _selectedCurrency;
+
+  /// Get the selected currency
+  /// @return the selected currency
+  ///
+  Currency get selectedCurrency => _selectedCurrency!;
+
   /// Constructor
   /// @param authenticationUseCase The authentication use case.
   /// @param minimumAmountUseCase The minimum amount use case.
@@ -56,22 +64,6 @@ class NowPaiementsService implements PaiementService {
     await _saveAuthTokenUseCase.execute(authentication.token);
   }
 
-  /// Create a wallet.
-  ///
-  @override
-  Future<void> createWallet() {
-    // TODO: implement createWallet
-    throw UnimplementedError();
-  }
-
-  /// Feed the wallet.
-  ///
-  @override
-  Future<void> feedWallet() {
-    // TODO: implement feedWallet
-    throw UnimplementedError();
-  }
-
   /// Get the minimum amount by currency.
   /// @param selectedCurrency the selected currency
   /// @return the minimum amount
@@ -84,13 +76,16 @@ class NowPaiementsService implements PaiementService {
   }
 
   @override
-  Future<PaiementEntity?> createPaiement({
-    required Currency selectedCurrency,
+  Future<String?> createPaiement({
     required Product product,
-  }) {
-    return _createPaiementUseCase.execute(
+    required String? username,
+  }) async {
+    final PaiementEntity? paiement = await _createPaiementUseCase.execute(
       selectedCurrency,
       product,
+      username,
     );
+
+    return paiement?.payAddress;
   }
 }

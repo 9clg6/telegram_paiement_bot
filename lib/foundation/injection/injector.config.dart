@@ -24,7 +24,6 @@ import '../../data/repository/paiement.repository.dart' as _i832;
 import '../../data/repository/product.repository.dart' as _i118;
 import '../../domain/service/firebase.service.dart' as _i1041;
 import '../../domain/service/product.service.dart' as _i382;
-import '../../domain/service/wallet.service.dart' as _i231;
 import '../../usecase/authantication.use_case.dart' as _i1013;
 import '../../usecase/create_paiement.use_case.dart' as _i335;
 import '../../usecase/get_auth_token.use_case.dart' as _i938;
@@ -99,8 +98,6 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i377.SaveAuthTokenUseCase>(),
           gh<_i335.CreatePaiementUseCase>(),
         ));
-    gh.singleton<_i231.WalletService>(
-        () => domainModule.walletService(gh<_i395.PaiementService>()));
     return this;
   }
 }

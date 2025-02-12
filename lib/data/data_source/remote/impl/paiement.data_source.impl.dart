@@ -50,13 +50,14 @@ class PaiementDataSourceImpl implements PaiementDataSource {
   Future<PaiementRemoteModel?> createPaiement(
     Currency selectedCurrency,
     Product product,
+    String? username,
   ) {
     return _paiementEndpoint.createPaiement(
       CreatePaiementBody(
         priceAmount: product.price!,
         priceCurrency: selectedCurrency.value,
         payCurrency: selectedCurrency.value,
-        orderDescription: 'Order description',
+        orderDescription: '$username-${product.name}',
         isFixedRate: false,
         isFeePaidByUser: true,
       ),

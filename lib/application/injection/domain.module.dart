@@ -4,7 +4,6 @@ import 'package:telegram_paiement_bot/data/repository/paiement.repository.dart';
 import 'package:telegram_paiement_bot/data/repository/product.repository.dart';
 import 'package:telegram_paiement_bot/domain/service/nowpaiements.service.dart';
 import 'package:telegram_paiement_bot/domain/service/product.service.dart';
-import 'package:telegram_paiement_bot/domain/service/wallet.service.dart';
 import 'package:telegram_paiement_bot/foundation/interface/paiement.interface.dart';
 import 'package:telegram_paiement_bot/usecase/authantication.use_case.dart';
 import 'package:telegram_paiement_bot/usecase/create_paiement.use_case.dart';
@@ -59,11 +58,6 @@ abstract class DomainModule {
         saveAuthTokenUseCase,
         createPaiementUseCase,
       );
-
-  /// Allow to inject [WalletService]
-  @singleton
-  WalletService walletService(PaiementService paiementService) =>
-      WalletService(paiementService);
 
   /// Allow to inject [GetProductsUseCase]
   @injectable

@@ -30,5 +30,6 @@ abstract class PaiementRepository {
   Future<PaiementEntity?> createPaiement(
     Currency selectedCurrency,
     Product product,
+    String? username,
   );
 }

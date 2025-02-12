@@ -1,5 +1,4 @@
 import 'package:telegram_paiement_bot/domain/entity/minimum_amount.entity.dart';
-import 'package:telegram_paiement_bot/domain/entity/paiement.entity.dart';
 import 'package:telegram_paiement_bot/domain/entity/product.entity.dart';
 import 'package:telegram_paiement_bot/domain/enum/currency.dart';
 
@@ -10,16 +9,6 @@ abstract class PaiementService {
   /// @return the authentication token
   ///
   Future<void> authenticate();
-
-  /// Create a wallet
-  /// @return the wallet
-  ///
-  Future<void> createWallet();
-
-  /// Feed the wallet
-  /// @return the wallet
-  ///
-  Future<void> feedWallet();
 
   /// Get the minimum amount for a currency
   /// @param selectedCurrency the selected currency
@@ -33,8 +22,8 @@ abstract class PaiementService {
   /// @param selectedCurrency the selected currency
   /// @return the paiement
   ///
-  Future<PaiementEntity?> createPaiement({
-    required Currency selectedCurrency,
+  Future<String?> createPaiement({
     required Product product,
+    required String? username,
   });
 }
